@@ -1,0 +1,6 @@
+mkdocs-material
+mkdocs-material-extensions
+mkdocs-glightbox
+mkdocs-exclude
+mkdocs-encryptcontent-plugin
+pymdown-extensions

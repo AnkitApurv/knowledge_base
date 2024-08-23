@@ -1,0 +1,6 @@
+internal-family:
+    - 'password1'
+confidential-family-adults:
+    - 'password2'
+highly_confidential-international_finances:
+    user1: 'password1'

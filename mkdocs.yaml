@@ -1,0 +1,143 @@
+site_name: Knowledge Base
+
+theme:
+  name: material
+  language: en
+
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - content.tabs.link
+    - content.tooltips
+    - content.code.copy
+    - content.code.annotate
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to system preference
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search
+    # lang: 
+      # - en
+      # - hi
+      # - sa
+  - offline
+  - glightbox
+  - exclude:
+      glob:
+        - assets/includes/*.md
+  - encryptcontent:
+      password_file: 'access_levels.yaml'
+      search_index: 'encrypted' # change to 'dynamically' when it's out of experimental phase
+      # password_button: True
+      remember_keys: True
+      remember_password: True
+      encrypted_something:
+          md-footer__inner: [nav, class]
+          md-nav: [nav, class]
+      webcrypto: true
+      esm: true
+      summary: 'This content is protected!'
+      encryption_info_message: "If you don't have access credentials, then you can contact the site administrator."
+      hljs: true
+      mermaid2: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.blocks.html
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      auto_title: true
+      anchor_linenums: true
+      use_pygments: true
+      pygments_lang_class: true
+      line_spans: __span
+      linenums: true
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.pathconverter:
+      base_path: ''
+      relative_path: ''
+      absolute: false
+      tags: 'a script img link object embed'
+  - pymdownx.snippets:
+      auto_append:
+        - assets/includes/abbreviations.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  # alternate:
+  #   - name: English
+  #     link: /en/ 
+  #     lang: en
+  #   - name: Hindi
+  #     link: /hi/
+  #     lang: hi
+  #   - name: Sanskrit
+  #     link: /sa/
+  #     lang: sa
+  generator: true
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - assets/javascripts/tablesort.js
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/material-encryptcontent.mjs
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - assets/stylesheets/extra.css
